@@ -1,0 +1,27 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Parameter" parallel="tests" thread-count="3" verbose="1" >
+
+	<parameter name="environment" value="Live"></parameter>
+
+	  <test name="Run on Firefox" >
+	  	<parameter name="browsers" value="firefox"></parameter>
+	    <classes>
+	       <class name="com.nopcommerce.account.MultipleBrowser" />
+	    </classes>
+	  </test>
+	 
+	  <test name="Run on Chrome">
+	  	<parameter name="browsers" value="chrome"></parameter>
+	    <classes>
+	      <class name="com.nopcommerce.account.MultipleBrowser"/>
+	    </classes>
+	  </test>
+	  
+	  <test name="Run on MSEdge">
+	  <parameter name="browsers" value="edge"></parameter>
+	    <classes>
+	      <class name="com.nopcommerce.account.MultipleBrowser"/>
+	    </classes>
+	  </test>
+</suite>
