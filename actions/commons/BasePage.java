@@ -152,6 +152,14 @@ public class BasePage {
 	public String getElementText(WebDriver driver, By locator) {
 		return getWebElement(driver, locator).getText();
 	}
+	
+	public String getElementAttribute(WebDriver driver, By locator, String attributeName) {
+		return getWebElement(driver, locator).getAttribute(attributeName);
+	}
+
+	public String getElementCssValue(WebDriver driver, By locator, String cssPropertyName) {
+		return getWebElement(driver, locator).getCssValue(cssPropertyName);
+	}
 
 	public void selecteItemInDefaultDropdown(WebDriver dirver, By locator, String itemValue) {
 		new Select(getWebElement(dirver, locator)).selectByValue(itemValue);
@@ -178,14 +186,6 @@ public class BasePage {
 			tempItem.click();
 			break;
 		}
-	}
-
-	public String getElementAttribute(WebDriver driver, By locator, String attributeName) {
-		return getWebElement(driver, locator).getAttribute(attributeName);
-	}
-
-	public String getElementCssValue(WebDriver driver, By locator, String cssPropertyName) {
-		return getWebElement(driver, locator).getCssValue(cssPropertyName);
 	}
 
 	public String convertRGBAToHexaColor(WebDriver driver, By locator) {
