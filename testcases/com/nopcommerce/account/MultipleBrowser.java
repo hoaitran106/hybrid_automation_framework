@@ -9,16 +9,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import commons.BaseTest;
-import pageObjects.CustomerPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import commons.PageCreator;
+import pageObjects.user.CustomerPageObject;
+import pageObjects.user.HomePageObject;
+import pageObjects.user.UserLoginPageObject;
+import pageObjects.user.RegisterPageObject;
 
 public class MultipleBrowser extends BaseTest {
 	
 	private WebDriver driver;
 	private HomePageObject homePage;
-	private LoginPageObject loginPage;
+	private UserLoginPageObject loginPage;
 	private RegisterPageObject registerPage;
 	private CustomerPageObject customerPage;
 	private String emailAddress = getEmailRandom();
@@ -26,19 +27,17 @@ public class MultipleBrowser extends BaseTest {
 	String osName = System.getProperty("os.name");
 	WebDriverWait explicitWait;
 
-	@Parameters("browsers")
+	@Parameters({"browsers", "userUrl"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
-		driver = getBrowserDriver(browserName);
-		explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		driver.get("https://demo.nopcommerce.com/");
+	public void beforeClass(String browserName, String userUrl) {
+		driver = getBrowserDriver(browserName, userUrl);
+		homePage = PageCreator.getHomePage(driver);
 	}
 	
 	@Test
 	public void Account_01_Register_EmptyData() {
-		homePage = new HomePageObject(driver);
-		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		
+		registerPage = homePage.clickToRegisterLink();
 		registerPage.clickToRegisterButton();
 	}
 
@@ -47,18 +46,10 @@ public class MultipleBrowser extends BaseTest {
 	}
 
 	@Test
-	public void Account_03_Register_IncorectPasword() {
-	}
-
-	@Test
-	public void Account_04_Register_Success() {
-		registerPage.clickToAppLogo();
+	public void Account_03_Register_Success() {
+		homePage = registerPage.clickToAppLogo();
+		registerPage = homePage.clickToRegisterLink();
 		
-		homePage = new HomePageObject(driver);
-		registerPage = new RegisterPageObject(driver);
-		
-		homePage.clickToRegisterLink();
-
 		registerPage.enterToFirstNameTextBox("John");
 		registerPage.enterToLastNameTextBox("Kennedy");
 		registerPage.enterToEmailTextBox(emailAddress);
@@ -71,20 +62,16 @@ public class MultipleBrowser extends BaseTest {
 	}
 	
 	@Test
-	public void Account_05_Login_Success() {
+	public void Account_04_Login_Success() {
+		homePage = registerPage.clickToAppLogo();
+		loginPage = homePage.clickToLogInLink();
 		
-		loginPage = new LoginPageObject(driver);
-		homePage = new HomePageObject(driver);
-		customerPage = new CustomerPageObject(driver);
-	
-		homePage.clickToLogInLink();
 		loginPage.enterToEmailTextBox(emailAddress);
 		loginPage.enterToPasswordTextBox("123456");
 		loginPage.clickToLoginButton();
 		
-		homePage.clickToMyAccountLink();
+		customerPage = homePage.clickToMyAccountLink();
 
-		
 		Assert.assertEquals(customerPage.getFirstNameTextBoxAttributeValue(), "John");
 		Assert.assertEquals(customerPage.getLastNameTextBoxAttributeValue(), "Kennedy");
 		Assert.assertEquals(customerPage.getEmailAddressTextBoxAttributeValue(), emailAddress);

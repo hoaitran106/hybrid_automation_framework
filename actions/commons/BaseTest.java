@@ -17,7 +17,7 @@ public class BaseTest {
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
 	
-	protected WebDriver getBrowserDriver(String browserName) {	
+	protected WebDriver getBrowserDriver(String browserName, String url) {	
 		
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
 		
@@ -44,6 +44,7 @@ public class BaseTest {
 		driver.manage().window().setPosition(new Point(0, 0)); //Top left
 		driver.manage().window().setSize(new Dimension(1900, 1080));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.get(url);
 		return driver;
 	}
 	

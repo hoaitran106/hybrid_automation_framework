@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.user;
 
 import org.openqa.selenium.By;
 

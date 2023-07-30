@@ -1,9 +1,10 @@
-package pageObjects;
+package pageObjects.user;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.RegisterPageUI;
+import commons.PageCreator;
+import pageUIs.user.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage {
 
@@ -19,9 +20,10 @@ public class RegisterPageObject extends BasePage {
 
 	}
 
-	public void clickToAppLogo() {
+	public HomePageObject clickToAppLogo() {
 		waitForElementVisible(driver, RegisterPageUI.APP_LOGO);
 		clickToElement(driver, RegisterPageUI.APP_LOGO);
+		return PageCreator.getHomePage(driver);
 	}
 
 	public void enterToFirstNameTextBox(String firstNameValue) {

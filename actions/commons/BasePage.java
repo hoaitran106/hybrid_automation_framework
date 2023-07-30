@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -329,6 +330,25 @@ public class BasePage {
 		return (boolean) ((JavascriptExecutor) driver).executeScript(
 				"return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0",
 				getWebElement(driver, locator));
+	}
+	
+	public boolean isPageLoadedSuccess(WebDriver driver) {
+		WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
+			@Override
+			public Boolean apply(WebDriver driver) {
+				return (Boolean) jsExecutor.executeScript("return (window.jQuery != null) && (jQuery.active === 0);");
+			}
+		};
+
+		ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
+			@Override
+			public Boolean apply(WebDriver driver) {
+				return jsExecutor.executeScript("return document.readyState").toString().equals("complete");
+			}
+		};
+		return explicitWait.until(jQueryLoad) && explicitWait.until(jsLoad);
 	}
 
 	/* Wait and Conditions */

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import commons.BasePage;
 import commons.BasePageFactory;
-import pageUIs.RegisterPageUI;
+import pageUIs.user.RegisterPageUI;
 
 public class RegisterPageObject extends BasePageFactory {
 

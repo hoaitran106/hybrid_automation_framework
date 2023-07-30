@@ -12,17 +12,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
-import pageObjects.CustomerPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.user.CustomerPageObject;
+import pageObjects.user.HomePageObject;
+import pageObjects.user.UserLoginPageObject;
+import pageObjects.user.RegisterPageObject;
 
 public class Account_01_Register_Page_Factory extends BasePage {
 
 	private WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
 	private HomePageObject homePage;
-	private LoginPageObject loginPage;
+	private UserLoginPageObject loginPage;
 	private RegisterPageObject registerPage;
 	private CustomerPageObject customerPage;
 	private String emailAddress = getEmailRandom();
@@ -75,7 +75,7 @@ public class Account_01_Register_Page_Factory extends BasePage {
 	@Test
 	public void Account_05_Login_Success() {
 		
-		loginPage = new LoginPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		homePage = new HomePageObject(driver);
 		customerPage = new CustomerPageObject(driver);
 	

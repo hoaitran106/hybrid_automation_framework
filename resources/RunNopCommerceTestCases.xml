@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite parallel="false" name="Suite">
+
+<parameter name="browserName" value="firefox"></parameter>
+<parameter name="adminUrl" value="https://admin-demo.nopcommerce.com"></parameter>
+<parameter name="userUrl" value="https://demo.nopcommerce.com"></parameter>
+
   <test name="Run on Firefox">
     <classes>
-      <class name="com.nopcommerce.account.Account_01_Register_Page_Factory"/>
+      <class name="com.nopcommerce.account.Level_02_Switch_Role"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
