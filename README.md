@@ -1,2 +1,2 @@
 # hybrid_automation_framework
-UI automation framework for UI NopCommerce project
+Automation framework for project using Selenium webdriver + TestNG + Native Java
