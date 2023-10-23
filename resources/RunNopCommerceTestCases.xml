@@ -7,7 +7,7 @@
 
   <test name="Run on Firefox">
     <classes>
-      <class name="com.nopcommerce.account.Level_02_Switch_Role"/>
+      <class name="com.nopcommerce.account.Level_03_Rest_Parameters"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

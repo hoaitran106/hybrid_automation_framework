@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-failed">Suite</span>
+              <span class="suite-name border-passed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,21 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Suite">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="com.nopcommerce.account.Level_02_Switch_Role" class="method navigator-link" hash-for-method="Level_01_Admin_To_User">Level_01_Admin_To_User</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Suite -->
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -116,7 +102,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="com.nopcommerce.account.Level_02_Switch_Role" class="method navigator-link" hash-for-method="Level_01_User_To_Admin">Level_01_User_To_Admin</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="com.nopcommerce.account.Level_03_Rest_Parameters" class="method navigator-link" hash-for-method="TC_01_Rest_Params">TC_01_Rest_Params</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -131,36 +117,17 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">com.nopcommerce.account.Level_02_Switch_Role</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="Level_01_Admin_To_User">
-                  </a> <!-- Level_01_Admin_To_User -->
-                  <span class="method-name">Level_01_Admin_To_User</span>
-                  <div class="stack-trace">java.lang.NullPointerException
-	at com.nopcommerce.account.Level_02_Switch_Role.Level_01_Admin_To_User(Level_02_Switch_Role.java:89)
-... Removed 25 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-failed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.nopcommerce.account.Level_02_Switch_Role</span>
+              <span class="class-name">com.nopcommerce.account.Level_03_Rest_Parameters</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Level_01_User_To_Admin">
-                  </a> <!-- Level_01_User_To_Admin -->
-                  <span class="method-name">Level_01_User_To_Admin</span>
+                  <a name="TC_01_Rest_Params">
+                  </a> <!-- TC_01_Rest_Params -->
+                  <span class="method-name">TC_01_Rest_Params</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -180,7 +147,7 @@
   &lt;parameter name=&quot;userUrl&quot; value=&quot;https://demo.nopcommerce.com&quot;/&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Run on Firefox&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.nopcommerce.account.Level_02_Switch_Role&quot;/&gt;
+      &lt;class name=&quot;com.nopcommerce.account.Level_03_Rest_Parameters&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Run on Firefox --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -220,20 +187,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Level_01_User_To_Admin')
-data.setCell(0, 2, 'com.nopcommerce.account.Level_02_Switch_Role')
-data.setCell(0, 3, 8180);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'Level_01_Admin_To_User')
-data.setCell(1, 2, 'com.nopcommerce.account.Level_02_Switch_Role')
-data.setCell(1, 3, 7);
+data.setCell(0, 1, 'TC_01_Rest_Params')
+data.setCell(0, 2, 'com.nopcommerce.account.Level_03_Rest_Parameters')
+data.setCell(0, 3, 6);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 seconds</span>
+              <span class="suite-total-time">Total running time: 6 ms</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -259,24 +222,18 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.nopcommerce.account.Level_02_Switch_Role</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.nopcommerce.account.Level_03_Rest_Parameters</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">beforeClass(firefox, https://admin-demo.nopcommerce.com, https://demo.nopcommerce.com)</span>
+                <span class="method-name">beforeClass(firefox)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">Level_01_Admin_To_User</span>
-                <span class="method-start">4303 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">Level_01_User_To_Admin</span>
-                <span class="method-start">4313 ms</span>
+                <span class="method-name">TC_01_Rest_Params</span>
+                <span class="method-start">8675 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">12494 ms</span>
+                <span class="method-start">8683 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
